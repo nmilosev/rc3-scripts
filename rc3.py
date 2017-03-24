@@ -17,6 +17,7 @@ def main():
         print("2. Provera da li su računari uključeni")
         print("3. Izvršavanje zadate komande na svim računarima")
         print("4. Gašenje računara za katedrom (lokalno)")
+        print("5. VNC remote pogled računara")
         print("------------------------------------------")
         print("0. Izlaz")
 
@@ -34,6 +35,8 @@ def main():
             print("Računar će se ugasiti za 3 sekunde.")
             os.system(rc3off.off_command)
             break
+        elif i == 5:
+            rc3cmd.vnc(password)
         else:
             print("Niste odabrali opciju.")
 
