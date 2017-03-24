@@ -33,18 +33,14 @@ def vnc(password):
     # komanda:
     host = input("Unesite racunar (npr. rc3-1): ")
 
-    command = 'nohup su - {} -c "x11vnc -noxdamage -display :2 -rfbport 5566"'.format(command)
+    command = 'nohup su - {} -c "x11vnc -noxdamage -display :2 -rfbport 5566"'.format(user)
     
     print("Izvršavam '{}' na '{}'... ".format(command, host), end="")
-    try:
-        output = ssh.run(host, 22, "rc3-admin", password, ssh.suwrap(password, command))
-        print(bcolors.OKGREEN + "Pokusaj pokretanja VNC servera na portu 5566 uspešan!" + bcolors.ENDC)
-        _ = input("Pritisnite enter za konekciju.")
-        os.system("vncviewer -ViewOnly {}:5566").format(host)
-    except:
-        print(bcolors.FAIL + "Timeout! Računar ugašen?" + bcolors.ENDC)
-        
+    output = ssh.run(host, 22, "rc3-admin", password, ssh.suwrap(password, command))
+    print(bcolors.OKGREEN + "Pokusaj pokretanja VNC servera na portu 5566 uspešan!" + bcolors.ENDC)
+    _ = input("Pritisnite enter za konekciju.")
+    os.system("vncviewer -ViewOnly {}:5566".format(host))
     print("Završeno.")
-
+    
 if __name__ == "__main__":
     cmd(ssh.getpassword())
