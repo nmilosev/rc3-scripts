@@ -2,14 +2,14 @@ import getpass
 from netmiko import ConnectHandler
 
 """
-SSH modul koji koristi netmiko biblioteku kao osnovu.
+Main SSH module
 """
 
 def run(hostname, port, username, password, command):
     """
-    Izvršava komandu (command) na hostname:port sa zadatim username-om i password-om.
+    Executes command on hostname:port with given username and password.
 
-    Vraća string, ono što je komanda ispisala.
+    Returns output string.
     """
     node = {
         'device_type': 'linux',
@@ -28,8 +28,6 @@ def run(hostname, port, username, password, command):
     
     return output
 
-# kao root (jedino rc3-admin ima sudo, password ne čuvamo u fajlu već unosi korisnik):
-# prvi razmak znaci da se ne cuva password u history-ju
 def suwrap(password, command):
     return " sudo -S <<< \"{}\" su -c '{}'".format(password, command)
 

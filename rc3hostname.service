@@ -1,0 +1,9 @@
+[Unit]
+Description=Sets the correct hostname for a machine in RC3
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rc3host.py
+
+[Install]
+WantedBy=multi-user.target

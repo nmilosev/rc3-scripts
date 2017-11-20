@@ -55,7 +55,10 @@ host = get_hostname()
 
 for k,v in hostnames.items():
     if mac == k:
-        set_hostname(v)
-        print("Sucessfully set hostname {} for {}".format(v, k))
+        if host != v:
+            set_hostname(v)
+            print("Sucessfully set hostname {} for {}".format(v, k))
+        else:
+            print("Hostname already set")
 
 

@@ -1,2 +1,4 @@
-sudo dnf install openssl-devel python3-devel /usr/lib/rpm/redhat/redhat-hardened-cc1
-sudo pip3 install netmiko
+# Fedora packages
+openssl-devel python3-devel /usr/lib/rpm/redhat/redhat-hardened-cc1
+# Python packages
+netmiko

@@ -1,25 +1,24 @@
 #!/usr/bin/python3
-import rc3check, rc3cmd, rc3off, ssh, os
+import rc3check, rc3cmd, rc3off, ssh, os, sys
+import translate as t
 
 """
-Glavna aplikacija
+Main application entry point
 """
 
 def main():
+
+    if "-en" in sys.argv:
+        t.CURR_LANG = "en"
+
     os.system("clear")
     
     password = ssh.getpassword()
 
     while True:
         os.system("clear")
-        print("Odaberite opciju:")
-        print("1. Gašenje svih računara u učionici")
-        print("2. Provera da li su računari uključeni")
-        print("3. Izvršavanje zadate komande na svim računarima")
-        print("4. Gašenje računara za katedrom (lokalno)")
-        print("5. VNC remote pogled računara")
-        print("------------------------------------------")
-        print("0. Izlaz")
+        
+        print(t.translate("prompt").rstrip().lstrip())
 
         i = int(input())
 
@@ -32,15 +31,14 @@ def main():
         elif i == 3: 
             rc3cmd.cmd(password)
         elif i == 4:
-            print("Računar će se ugasiti za 3 sekunde.")
+            print(t.translate("offin2"))
             os.system(rc3off.off_command)
             break
         elif i == 5:
             rc3cmd.vnc(password)
         else:
-            print("Niste odabrali opciju.")
+            print(t.translate("noopchosen"))
 
-        #wait:
         input()
 
 if __name__ == "__main__":
