@@ -36,6 +36,14 @@ def main():
             break
         elif i == 5:
             rc3cmd.vnc(password)
+        elif i == 6:
+            rc3off.off(password)
+            print(t.translate("offin2"))
+            os.system(rc3off.off_command)
+        elif i == 7:
+            rc3cmd.vncall(password, ssh.gethostnames(), False)
+        elif i == 8:
+            rc3cmd.vncone(password)
         else:
             print(t.translate("noopchosen"))
 

@@ -14,7 +14,7 @@ def check(password):
     command = "uptime"
 
     for host in ssh.gethostnames():
-        #TODO: i18n:
+        
         print(t.translate("checking").format(host), end="")
         try:
             ssh.run(host, 22, "rc3-admin", password, ssh.suwrap(password, command))

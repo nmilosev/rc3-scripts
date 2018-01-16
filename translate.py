@@ -9,6 +9,9 @@ Odaberite opciju:
 3. Izvršavanje zadate komande na svim računarima
 4. Gašenje računara za katedrom (lokalno)
 5. VNC remote pogled računara
+6. Gašenje svih računara i katedre na kraju
+7. VNC - svi računari
+8. VNC - jedan računar
 ------------------------------------------
 0. Izlaz
     """, 
@@ -25,7 +28,9 @@ Odaberite opciju:
     "vncconnected" : "Pokusaj pokretanja VNC servera na portu 5566 uspešan!",
     "vncenter" : "Pritisnite enter za konekciju.",
     "willturnoff" : "Ovo će ugasiti sve računare u učionici.", 
-    "turningoff" : "Gašenje {}... "
+    "turningoff" : "Gašenje {}... ",
+    "loggedin" : "Ulogovani korisnici: ",
+    "loginpromptremind" : "Ukoliko bude potrebno da se otkljuca keyring uneti pass od rc3-admin korisnika"
 }
 
 endict = { 
@@ -36,6 +41,9 @@ Choose option:
 3. Execute a command on all workstations
 4. Turn off local machine
 5. VNC view
+6. Turn off everything
+7. VNC - all hosts
+8. VNC - one host
 ------------------------------------------
 0. Exit
     """, 
@@ -52,7 +60,9 @@ Choose option:
     "vncconnected" : "Sucessfully started VNC server on port 5566!",
     "vncenter" : "Press enter to connect.",
     "willturnoff" : "This will power off all the workstations.", 
-    "turningoff" : "Powering off {}... "
+    "turningoff" : "Powering off {}... ",
+    "loggedin" : "Logged in users: ",
+    "loginpromptremind" : "If asked for keyring, enter rc3-admin pass"
 }
 
 def translate(key):
