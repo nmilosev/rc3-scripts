@@ -20,4 +20,4 @@ jobs:
         pip install pylint netmiko black
     - name: Analysing the code with pylint
       run: |
-        black . && pylint `ls -R|grep .py$|xargs`
+        black . && pylint --exit-zero `ls -R|grep .py$|xargs`
